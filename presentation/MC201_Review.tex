@@ -1,0 +1,508 @@
+\documentclass[12pt,xcolor=dvipsnames]{beamer}
+\usecolortheme[named=Maroon]{structure}
+\usetheme{Luebeck}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\DeclareMathOperator\erfc{erfc}
+\graphicspath{{../plots/}}
+\author{Jonathan Morrell, Tyler Bailey, Mitch Negus}
+\title{HFNG Flux Calculation}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview}
+\begin{columns}[c]
+\column{2in}
+\begin{itemize}
+\item Experiment summary
+\item DD fusion spectrum
+\item Solution method
+\item Implementation
+\item Results
+\end{itemize}
+\column{2in}
+\includegraphics[width=2in]{hfng.jpg}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Experiment Summary}
+\begin{columns}[c]
+\column{2.5in}
+\includegraphics[width=2.5in]{sample_holder.jpg}
+\column{1.5in}
+\begin{itemize}
+\item Goal to measure $^{35}$Cl(n,p)$^{35}$S cross section
+\item 5x 11 mm OD NaCl pellets
+\item Monitor fluence using $^{58}$Ni(n,p)$^{58}$Co
+\item Need to determine energy spectrum for each sample
+\end{itemize}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Experiment Summary}
+\begin{center}
+\begin{tabular}{c|cccc}
+\hline 
+Sample & $\Delta$x [mm] & $\Delta$y [mm] & $\Delta$z [mm] & $\Delta \theta$ [$^{\circ}$] \\ 
+\hline 
+1 & 0.0 & 0.0 & 8.0 & 0 \\ 
+2 & 9.0 & 8.0 & 8.0 & 0 \\ 
+3 & 18.0 & 0.0 & 8.0 & 0 \\ 
+4 & 36.0 & 0.0 & 8.0 & 0 \\ 
+5 & 46.0 & 0.0 & -7.0 & 90 \\ 
+\hline 
+\end{tabular}
+\end{center}
+\begin{columns}[c]
+\column{1.5in}
+\includegraphics[width=1.5in]{sample_holder.jpg}
+\column{2.5in}
+\begin{itemize}
+\item $\Delta$x, $\Delta$y, $\Delta$z relative to beam center
+\item Additional 1.5 mm $\Delta$z due to thickness of sample holder
+\item 14 mm beam diameter
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{DD Fusion Spectrum}
+\begin{columns}[c]
+\column{2in}
+\begin{tabular}{c|cc}
+\hline 
+$A_n$ & 100 keV & 200 keV \\ 
+\hline 
+$A_0$ & 2.4674 & 2.47685 \\ 
+$A_1$ & 0.30083 & 0.39111 \\ 
+$A_2$ & 0.01368 & 0.04098 \\ 
+$A_3$ & 0.0 & 0.02957 \\ 
+\hline 
+\end{tabular}\\
+\ \ \\
+$E_n(\theta) = A_0 + \sum_{n=1}^3 A_n cos^n(\theta)$
+\column{2in}
+\begin{tabular}{c|cc}
+\hline 
+$A_n$ & 100 keV & 200 keV \\ 
+\hline 
+$A_1$ & 0.01741 & -0.03149 \\ 
+$A_2$ & 0.88746 & 1.11225 \\ 
+$A_3$ & 0.22497 & 0.38659 \\
+$A_4$ & 0.08183 & 0.26676 \\
+$A_5$ & 0.37225 & 0.11518 \\ 
+\hline 
+\end{tabular}\\
+\ \ \\
+$\frac{R(\theta)}{R(90^{\circ})}=1+\sum_{n=1}^5 A_n cos^n(\theta)$
+\end{columns}
+\begin{itemize}
+\item Use neutron energy and intensity correlations as input to source definition
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{DD Fusion Spectrum}
+\begin{columns}[c]
+\column{2in}
+\includegraphics[width=2in]{energy_angle.png}\\
+$E_n(\theta) = A_0 + \sum_{n=1}^3 A_n cos^n(\theta)$
+\column{2in}
+\includegraphics[width=2in]{intensity_angle.png}\\
+$\frac{R(\theta)}{R(90^{\circ})}=1+\sum_{n=1}^5 A_n cos^n(\theta)$
+\end{columns}
+\begin{itemize}
+\item Use neutron energy and intensity correlations as input to source definition
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Method}
+Solve for average flux over sample (in vacuum) for given source definition and sample geometry using Monte Carlo
+\begin{align*}
+\bar{\phi}(E) &= \int \int S(\vec{r},E,\hat{\Omega})d^3rd\hat{\Omega} \\
+              &= \int \int \phi_0 \frac{n(\vec{r})\delta (\hat{\Omega}-\Omega_{sample})R(\theta(E))}{|\vec{r}-r|^2} d^3rd\hat{\Omega} \\
+              &= \frac{1}{N} \sum_{n=1}^{N} \phi_0 \frac{R(\theta(E_n))\delta_{r\theta}}{(\Delta r_n)^2} = \phi_0 \sum_{n=1}^{N} \frac{R(\theta(E_n))\delta_{r\theta}}{(\Delta r_n)^2}
+\end{align*}
+where $n(\vec{r})$ is PDF for source (e.g. Gaussian) and $\delta_{r\theta}$ constrains neutron rays to source-sample paths. 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Solution Method}
+Generate ray coordinates by randomly generating source point from (radial) Gaussian distribution, and sample point from (radial) uniform distribution.\\
+\ \ \\
+\begin{columns}[c]
+\column{2in}
+\includegraphics[width=2in]{MC201_Graphic.png}
+\column{2in}
+In general:\\
+$\theta = arccos(\frac{\vec{r_1}\cdot\vec{r_2}}{|\vec{r_1}||\vec{r_2}|})$\\
+\ \ \\
+In 2D Cartesian:\\
+$\theta = arccos(\frac{\Delta z}{\sqrt{\Delta x^2 + \Delta z^2}})$\\
+\ \ \\
+In 3D Cartesian:\\
+$\theta = arccos(\frac{\Delta z}{\sqrt{\Delta x^2 + \Delta y^2 + \Delta z^2}})$\\
+\ \ \\
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Implementation}
+\begin{columns}[c]
+\column{2in}
+\begin{itemize}
+\item Implemented in python 2.7
+\item Source on github:
+\item \url{https://github.com/jtmorrell/MC_NE201}
+\item Generates plots of flux spectrum for each sample and prints $E_{average}\pm 1\sigma_E$
+\end{itemize}
+\column{2in}
+\includegraphics[width=2in]{github.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results (Sample 1)}
+\centering
+\includegraphics[width=3.5in]{009False.png}\\
+$E_n=2.76\pm 0.019$ [MeV]
+\end{frame}
+
+\begin{frame}
+\frametitle{Results (Sample 2)}
+\centering
+\includegraphics[width=3.5in]{989False.png}\\
+$E_n=2.67\pm 0.033$ [MeV]
+\end{frame}
+
+\begin{frame}
+\frametitle{Results (Sample 3)}
+\centering
+\includegraphics[width=3.5in]{1809False.png}\\
+$E_n=2.62\pm 0.023$ [MeV]
+\end{frame}
+
+\begin{frame}
+\frametitle{Results (Sample 4)}
+\centering
+\includegraphics[width=3.5in]{3609False.png}\\
+$E_n=2.55\pm 0.007$ [MeV]
+\end{frame}
+
+\begin{frame}
+\frametitle{Results (Sample 5)}
+\centering
+\includegraphics[width=3.5in]{-7046True.png}\\
+$E_n=2.47\pm 0.018$ [MeV]
+\end{frame}
+
+% \begin{frame}
+% \frametitle{Peak Fitting}
+% Fit to a skewed Gaussian
+% \begin{align*}
+% F_{peak}(i) &= m\cdot i + b + A\cdot [\exp (-\frac{(i-\mu)^2}{2\sigma^2}) \\
+% & + R\cdot \exp (\frac{i-\mu}{\alpha \sigma}) \erfc (\frac{i-\mu}{\sqrt{2}\sigma}+\frac{1}{\sqrt{2}\alpha})]
+% \label{eq:peak}
+% \end{align*}
+% \centering
+% \includegraphics[width=2.0in]{Mn_Peak.png}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Other Peak Examples}
+% \centering
+% \includegraphics[width=4.0in]{peak_fits/AV170825_50cm_Cs137_fits}
+
+% \includegraphics[width=2.0in]{Eu_Peaks.png}
+
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Calibration}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{calibration/energy_calibration}
+% \column{2.5in}
+% \includegraphics[width=2.5in]{calibration/efficiency_calibration}
+% \end{columns}
+% $E = m\cdot i+b$
+% \ \ \\
+% $\epsilon (E) = exp[a\cdot ln(E)^2+b\cdot ln(E)+c]$
+
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Fitting Monitor Peaks}
+% \centering
+% \includegraphics[width=4.0in]{peak_fits/D_5cm_Al01_fits}
+
+% \includegraphics[width=2.0in]{62ZN_Peak.png}
+
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{End-of-Beam Activities}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{decay_curves/Cu01_63ZN}
+% \column{2.5in}
+% \includegraphics[width=2.5in]{decay_curves/Cu01_62ZN}
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{MCNP - Anderson Ziegler Comparison}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{monitors/La_mcnp_spectrum}
+% \column{2.5in}
+% \includegraphics[width=2.5in]{monitors/La_az_spectrum}
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Aluminum Monitor Corrections}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{monitors/22NA_Al_Correction}
+% \column{2.5in}
+% \includegraphics[width=2.5in]{monitors/24NA_Al_Correction}
+% \end{columns}
+% \end{frame}
+
+
+% \begin{frame}
+% \frametitle{Determining Beam Current}
+% \begin{columns}[c]
+% \column{1.5in}
+% \includegraphics[width=1.5in]{monitors/La_mcnp_spectrum}
+% \\
+% Optimum $\Delta \rho$ determined by $\chi^2$ minimization using MCNP
+% \column{2.5in}
+% \includegraphics[width=2.5in]{monitors/minimize_mcnp}
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Optimized Beam Current}
+% \includegraphics[width=3.5in]{monitors/current_norm_mcnp}
+% \\
+% Optimum value of $\Delta \rho$: 1.35
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Monitor Cross-Sections}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/62ZN}
+% \\
+% \centering
+% \includegraphics[width=2.0in]{cross_sections/24NA}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/63ZN}
+% \\
+% \centering
+% \includegraphics[width=2.0in]{cross_sections/22NA}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Comparison to EXFOR Data}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/58CO_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/58CO}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Comparison to EXFOR Data}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/61CU_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/61CU}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Peak Fitting of Lanthanum Data}
+% \includegraphics[width=4.0in]{early_604.png}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Peak Fitting of Lanthanum Data}
+% \includegraphics[width=4.0in]{intermediate_604.png}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Peak Fitting of Lanthanum Data}
+% \includegraphics[width=4.0in]{late_604.png}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Calculate $^{134}Ce$ $A_0$ from $^{134}La$ $A(t_c)$}
+% \includegraphics[width=4.0in]{decay_curves/La01_134LA}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Comparison to previous analysis}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{old_fit.png}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{comparison_130.png}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Other Peak Fits}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{CE137m_fit.png}
+% \centering
+% \ \ $^{137m}$Ce: E=254.29 [keV]\\ $I_{\gamma}$=11.1\%\\ $\chi^2_{\nu}$=1.097
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{BA133g_fit.png}
+% \centering
+% \ \ $^{133g}$Ba: E=356.01 [keV]\\ $I_{\gamma}$=62.05\%\\ $\chi^2_{\nu}$=1.003
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Daughter Nuclide Initial Activities}
+
+% $A_D(t_c) = A_{p0}\frac{\lambda_D}{\lambda_D - \lambda_p}(e^{-\lambda_p t_c}-e^{-\lambda_D t_c})+A_{D0}e^{-\lambda_D t_c}$
+% \\
+% \centering
+% \includegraphics[width=3.5in]{decay_curves/La01_137CEg}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{$^{134}$Ce Cross-Section}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/134CE_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/134CE}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{$^{135}$Ce Cross-Section}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/135CE_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/135CE}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{$^{137m}$Ce Cross-Section}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/137CEm_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/137CEm}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{$^{137g}$Ce Cross-Section}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/137CEg_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/137CEg}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{$^{139}$Ce Cross-Section}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/139CE_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/139CE}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{$^{132}$Cs Cross-Section}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/132CS_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/132CS}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{$^{133m}$Ba Cross-Section}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/133BAm_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/133BAm}
+% \\
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{$^{133g}$Ba Cross-Section}
+% \begin{columns}[c]
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/133BAg_only}
+% \\
+% \column{2.5in}
+% \includegraphics[width=2.5in]{cross_sections/133BAg}
+% \\
+% \end{columns}
+% \end{frame}
+
+\end{document}

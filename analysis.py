@@ -84,9 +84,21 @@ class flux_calc(object):
 		ax.legend(loc=0)
 		f.tight_layout()
 		plt.show()
+	def plot_intensity_angle(self,deuteron_energy=102.6):
+		B100,B200 = [0.01741,0.88746,0.22497,0.08183,0.37225],[-0.03149,1.11225,0.38659,0.26676,0.11518]
+		coeffB = [B100[n]+(deuteron_energy-100.0)*(B200[n]-B100[n])/100.0 for n in range(5)]
+		yield_func = lambda theta_deg: 1.0+sum([coeffB[n]*np.cos(theta_deg*np.pi/180.0)**n for n in range(5)])
+		f,ax = plt.subplots()
+		ax.plot(np.arange(0,180,0.1),[yield_func(t) for t in np.arange(0,180,0.1)],color=self.pallate['k'],lw=2.0,label=str(round(deuteron_energy,1))+' keV')
+		ax.set_xlabel(r'$\theta$ [degrees]')
+		ax.set_ylabel(r'R($\theta$)/R(90$^{\circ}$)')
+		ax.legend(loc=0)
+		f.tight_layout()
+		plt.show()
 
 if __name__=='__main__':
 	fc = flux_calc()
 	# fc.plot_energy_angle()
+	# fc.plot_intensity_angle()
 	# fc.plot_energy_spectrum()
 	fc.plot_all_sample_positions(saveplots=True)
