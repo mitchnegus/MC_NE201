@@ -24,11 +24,9 @@ class flux_calc(object):
 		xy_smpl = [(dx+r*np.cos(tht_smpl[n]),dy+r*np.sin(tht_smpl[n])) for n,r in enumerate(r_smpl)]
 		#calculate angle/energy
 		if elbow:
-			sign = 1.0 if dx>=0.0 else -1.0
-			angle_deg = [180.0*np.arccos(sign/np.sqrt(1.0+((dz-s[0])**2+(xy_smpl[n][1]-s[1])**2)/xy_smpl[n][0]**2))/np.pi for n,s in enumerate(xy_src)]
+			angle_deg = [180.0*np.arccos((dx-xy_smpl[n][0])/np.sqrt((dz-s[0])**2+(xy_smpl[n][1]-s[1])**2+(dx-xy_smpl[n][0])**2))/np.pi for n,s in enumerate(xy_src)]
 		else:
-			sign = 1.0 if dz>=0.0 else -1.0
-			angle_deg = [180.0*np.arccos(sign/np.sqrt(1.0+((xy_smpl[n][0]-s[0])**2+(xy_smpl[n][1]-s[1])**2)/dz**2))/np.pi for n,s in enumerate(xy_src)]
+			angle_deg = [180.0*np.arccos(dz/np.sqrt((xy_smpl[n][0]-s[0])**2+(xy_smpl[n][1]-s[1])**2+dz**2))/np.pi for n,s in enumerate(xy_src)]
 		E_n = list(map(eng_func,angle_deg))
 		#calculate weight
 		dist = [np.sqrt(dz**2+((xy_smpl[n][0]-s[0])**2+(xy_smpl[n][1]-s[1])**2)) for n,s in enumerate(xy_src)]
