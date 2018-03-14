@@ -91,4 +91,4 @@ if __name__=='__main__':
 	fc = flux_calc()
 	# fc.plot_energy_angle()
 	# fc.plot_energy_spectrum()
-	fc.plot_all_sample_positions()
+	fc.plot_all_sample_positions(saveplots=True)
