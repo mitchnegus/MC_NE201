@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.27)  21 MAR 2018 16:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.2.27)  22 MAR 2018 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1033,8 +1033,7 @@ Now handling font encoding PD1 ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-))
-No file MC201_Review.aux.
+)) (./MC201_Review.aux)
 \openout1 = `MC201_Review.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
@@ -1051,6 +1050,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1128,6 +1128,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 20.
 LaTeX Info: Redefining \pageref on input line 20.
 LaTeX Info: Redefining \nameref on input line 20.
+
+(./MC201_Review.out) (./MC201_Review.out)
 \@outlinefile=\write5
 \openout5 = `MC201_Review.out'.
 
@@ -1199,8 +1201,7 @@ orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 LaTeX Info: Redefining \includegraphics on input line 20.
-
-No file MC201_Review.nav.
+ (./MC201_Review.nav)
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 24.
@@ -1218,7 +1219,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<../plots/hfng.jpg, id=44, 1138.2525pt x 1517.67pt>
+<../plots/hfng.jpg, id=46, 1138.2525pt x 1517.67pt>
 File: ../plots/hfng.jpg Graphic file (type jpg)
  <use ../plots/hfng.jpg>
 Package pdftex.def Info: ../plots/hfng.jpg used on input line 40.
@@ -1227,7 +1228,7 @@ Package pdftex.def Info: ../plots/hfng.jpg used on input line 40.
 [2
 
  <../plots/hfng.jpg>]
-<../plots/sample_holder.jpg, id=71, 696.35156pt x 473.51906pt>
+<../plots/sample_holder.jpg, id=73, 696.35156pt x 473.51906pt>
 File: ../plots/sample_holder.jpg Graphic file (type jpg)
 
 <use ../plots/sample_holder.jpg>
@@ -1246,14 +1247,14 @@ Package pdftex.def Info: ../plots/sample_holder.jpg used on input line 84.
 ] [5
 
 ]
-<../plots/energy_angle.png, id=158, 462.528pt x 346.896pt>
+<../plots/energy_angle.png, id=160, 462.528pt x 346.896pt>
 File: ../plots/energy_angle.png Graphic file (type png)
 
 <use ../plots/energy_angle.png>
 Package pdftex.def Info: ../plots/energy_angle.png used on input line 135.
 (pdftex.def)             Requested size: 144.54pt x 108.40472pt.
 
-<../plots/intensity_angle.png, id=160, 462.528pt x 346.896pt>
+<../plots/intensity_angle.png, id=162, 462.528pt x 346.896pt>
 File: ../plots/intensity_angle.png Graphic file (type png)
 
 <use ../plots/intensity_angle.png>
@@ -1263,7 +1264,7 @@ Package pdftex.def Info: ../plots/intensity_angle.png used on input line 135.
 
  <../plots/energy_angle.png> <../plots/intensity_angle.png>] [7
 
-] <../plots/MC201_Graphic.png, id=217, 963.6pt x 722.7pt>
+] <../plots/MC201_Graphic.png, id=219, 963.6pt x 722.7pt>
 File: ../plots/MC201_Graphic.png Graphic file (type png)
 
 <use ../plots/MC201_Graphic.png>
@@ -1272,7 +1273,7 @@ Package pdftex.def Info: ../plots/MC201_Graphic.png used on input line 167.
  [8
 
  <../plots/MC201_Graphic.png (PNG copy)>]
-<../plots/github.png, id=246, 1116.17pt x 922.44624pt>
+<../plots/github.png, id=248, 1116.17pt x 922.44624pt>
 File: ../plots/github.png Graphic file (type png)
 
 <use ../plots/github.png>
@@ -1281,7 +1282,7 @@ Package pdftex.def Info: ../plots/github.png used on input line 182.
  [9
 
  <../plots/github.png>]
-<../plots/009False.png, id=275, 462.528pt x 346.896pt>
+<../plots/009False.png, id=277, 462.528pt x 346.896pt>
 File: ../plots/009False.png Graphic file (type png)
 
 <use ../plots/009False.png>
@@ -1290,7 +1291,7 @@ Package pdftex.def Info: ../plots/009False.png used on input line 189.
  [10
 
  <../plots/009False.png>]
-<../plots/989False.png, id=303, 462.528pt x 346.896pt>
+<../plots/989False.png, id=305, 462.528pt x 346.896pt>
 File: ../plots/989False.png Graphic file (type png)
 
 <use ../plots/989False.png>
@@ -1299,7 +1300,7 @@ Package pdftex.def Info: ../plots/989False.png used on input line 196.
  [11
 
  <../plots/989False.png>]
-<../plots/1809False.png, id=331, 462.528pt x 346.896pt>
+<../plots/1809False.png, id=333, 462.528pt x 346.896pt>
 File: ../plots/1809False.png Graphic file (type png)
 
 <use ../plots/1809False.png>
@@ -1308,7 +1309,7 @@ Package pdftex.def Info: ../plots/1809False.png used on input line 203.
  [12
 
  <../plots/1809False.png>]
-<../plots/3609False.png, id=360, 462.528pt x 346.896pt>
+<../plots/3609False.png, id=362, 462.528pt x 346.896pt>
 File: ../plots/3609False.png Graphic file (type png)
 
 <use ../plots/3609False.png>
@@ -1317,15 +1318,15 @@ Package pdftex.def Info: ../plots/3609False.png used on input line 210.
  [13
 
  <../plots/3609False.png>]
-<../plots/-7046True.png, id=389, 462.528pt x 346.896pt>
-File: ../plots/-7046True.png Graphic file (type png)
+<../plots/460-7True.png, id=391, 462.528pt x 346.896pt>
+File: ../plots/460-7True.png Graphic file (type png)
 
-<use ../plots/-7046True.png>
-Package pdftex.def Info: ../plots/-7046True.png used on input line 217.
+<use ../plots/460-7True.png>
+Package pdftex.def Info: ../plots/460-7True.png used on input line 217.
 (pdftex.def)             Requested size: 252.94499pt x 189.70827pt.
  [14
 
- <../plots/-7046True.png>] [15
+ <../plots/460-7True.png>] [15
 
 ]
 \tf@nav=\write6
@@ -1343,15 +1344,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 237.
 (./MC201_Review.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 237.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 237.
+Package rerunfilecheck Info: File `MC201_Review.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
-
-Package rerunfilecheck Warning: File `MC201_Review.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `MC201_Review.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -1359,13 +1354,13 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 237.
  ) 
 Here is how much of TeX's memory you used:
- 16980 strings out of 494953
- 323427 string characters out of 6180977
- 394658 words of memory out of 5000000
- 19819 multiletter control sequences out of 15000+600000
+ 17023 strings out of 494953
+ 323834 string characters out of 6180977
+ 394792 words of memory out of 5000000
+ 19854 multiletter control sequences out of 15000+600000
  10428 words of font info for 39 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 48i,16n,51p,431b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,16n,51p,431b,597s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
@@ -1378,7 +1373,7 @@ ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
 2.pfb>
-Output written on MC201_Review.pdf (15 pages, 800934 bytes).
+Output written on MC201_Review.pdf (15 pages, 803977 bytes).
 PDF statistics:
  491 PDF objects out of 1000 (max. 8388607)
  432 compressed objects within 5 object streams
