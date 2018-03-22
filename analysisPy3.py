@@ -32,7 +32,8 @@ class flux_calc(object):
 		
 		#calculate angle/energy
 		if elbow:
-			angle_deg = [180.0*np.arccos((dz-xy_smpl[n][0])/np.sqrt((dz-xy_smpl[n][0])**2+(xy_smpl[n][1]-s[1])**2+(dx-s[0])**2))/np.pi for n,s in enumerate(xy_src)]
+			angle_deg = [180.0 * np.arccos((dx-xy_smpl[n][0]) / np.sqrt((dz-s[0])**2 + (xy_smpl[n][1]-s[1])**2
+						+ (dx-xy_smpl[n][0])**2)) / np.pi for n, s in enumerate(xy_src)]
 		else:
 			angle_deg = [180.0 * np.arccos(dz/np.sqrt((xy_smpl[n][0]-s[0])**2+(xy_smpl[n][1]-s[1])**2+dz**2))
 						/ np.pi for n, s in enumerate(xy_src)]
