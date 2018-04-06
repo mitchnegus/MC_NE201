@@ -1,0 +1,40 @@
+C Sample holder
+1 1 -1.0     (1 -2 3 -4):(2 -4 5 -6) 7 -8                    $ SAMPLE HOLDER 
+              #(-2 -10 19) #(-2 -11 19) #(-2 -12 19)
+              #(-2 -13 19) #(-2 -14 19) #(-2 -15 19) 
+              #(-2 -16 19) #(-2 -17 19) #(-2 -18 19) 
+              #(5 -20 -21)                               IMP:N,P=1
+
+
+C Sample holder surfaces
+1   pz  0                  $ LONG LEG - OUTER FACE
+2   pz  0.315              $ LONG LEG - INNER FACE
+3   py  0                  $ LONG LEG - END FACE
+4   py  8.920              $ SHORT LEG - OUTER FACE
+5   py  8.605              $ SHORT LEG - INNER FACE
+6   pz  XXXX               $ SHORT LEG - END FACE
+7   px  0                  $ BACK FACE
+8   px  3.990              $ FRONT FACE
+10  c/z 1.995 4.170 0.550  $ HOLDER 1 
+11  c/z 1.195 5.070 0.550  $ HOLDER 2
+12  c/z 1.995 5.970 0.550  $ HOLDER 3
+13  c/z 1.995 7.770 0.550  $ HOLDER 4
+14  c/z 1.195 3.270 0.550  $ HOLDER 2RY
+15  c/z 2.795 5.070 0.550  $ HOLDER 2RX
+16  c/z 2.795 3.270 0.550  $ HOLDER 2RXY
+17  c/z 1.995 2.370 0.550  $ HOLDER 3RY
+18  c/z 1.995 0.570 0.550  $ HOLDER 4RY
+19  pz  0.085              $ LONG LEG - HOLDER BOTTOMS 
+20  c/y 1.995 1.815 0.550  $ HOLDER 5 
+21  py  8.835              $ SHORT LEG - HOLDER BOTTOM
+
+C ASSUMPTIONS & NOTES:
+C      - need value for length of short leg
+C      - cylindrical holders assumed centered in x-dimension
+C      - assumed symmetry on holders
+C          - 2RX is holder 2 reflected over x-midplane
+C          - 2RY is holder 2 reflected over y-midplane
+C          - 2RXY is holder 2 reflected over x- and y-midplanes
+C      - 41.7mm + 47.5mm = 89.2mm; inconsistency on diagram 
+C      - surprising that end of 4RY holder is thickness of 0.2mm (true?)
+C      - need material for holder
