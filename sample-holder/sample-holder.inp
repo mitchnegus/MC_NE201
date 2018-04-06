@@ -28,13 +28,14 @@ C Sample holder surfaces
 20  c/y 1.995 1.815 0.550  $ HOLDER 5 
 21  py  8.835              $ SHORT LEG - HOLDER BOTTOM
 
-C ASSUMPTIONS & NOTES:
-C      - need value for length of short leg
+C ASSUMPTIONS:
+C      - need value for length of short leg (30mm)
 C      - cylindrical holders assumed centered in x-dimension
 C      - assumed symmetry on holders
 C          - 2RX is holder 2 reflected over x-midplane
 C          - 2RY is holder 2 reflected over y-midplane
 C          - 2RXY is holder 2 reflected over x- and y-midplanes
-C      - 41.7mm + 47.5mm = 89.2mm; inconsistency on diagram 
+C NOTES:
+C      - 41.7mm + 47.5mm = 89.2mm; inconsistency on diagram (to outer edge)
 C      - surprising that end of 4RY holder is thickness of 0.2mm (true?)
-C      - need material for holder
+C      - 6020 Al
