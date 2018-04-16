@@ -24,7 +24,7 @@ class flux_calc(object):
 		xy_smpl = [(dx+r*np.cos(tht_smpl[n]),dy+r*np.sin(tht_smpl[n])) for n,r in enumerate(r_smpl)]
 		#calculate angle/energy
 		if elbow:
-			angle_deg = [180.0*np.arccos((dx-xy_smpl[n][0])/np.sqrt((dz-s[0])**2+(xy_smpl[n][1]-s[1])**2+(dx-xy_smpl[n][0])**2))/np.pi for n,s in enumerate(xy_src)]
+			angle_deg = [180.0*np.arccos((dz-xy_smpl[n][0])/np.sqrt((dz-xy_smpl[n][0])**2+(xy_smpl[n][1]-s[1])**2+(dx-s[0])**2))/np.pi for n,s in enumerate(xy_src)]
 		else:
 			angle_deg = [180.0*np.arccos(dz/np.sqrt((xy_smpl[n][0]-s[0])**2+(xy_smpl[n][1]-s[1])**2+dz**2))/np.pi for n,s in enumerate(xy_src)]
 		E_n = list(map(eng_func,angle_deg))
@@ -71,7 +71,7 @@ class flux_calc(object):
 		else:
 			plt.show()
 	def plot_all_sample_positions(self,saveplots=True):
-		for sm in [(0.0,0.0,9.5,False),(9.0,8.0,9.5,False),(18.0,0.0,9.5,False),(36.0,0.0,9.5,False),(-7.0,0.0,46.0,True)]:
+		for sm in [(0.0,0.0,9.5,False),(9.0,8.0,9.5,False),(18.0,0.0,9.5,False),(36.0,0.0,9.5,False),(46.0,0.0,-7.0,True)]:
 			self.plot_energy_spectrum(dx=sm[0],dy=sm[1],dz=sm[2],elbow=sm[3],saveplot=saveplots)
 	def plot_energy_angle(self,deuteron_energy=102.6):
 		A100,A200 = [2.46674,0.30083,0.01368,0.0],[2.47685,0.39111,0.04098,0.02957]
