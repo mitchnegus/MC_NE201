@@ -1,3 +1,10 @@
+C This is a geometric template for the sample holder. It must be rotated and
+C translated to fit into a complete input. Changes made in that input may also
+C be required for code operability.
+C 
+C Additional notes are provided at the end of the file
+C ----------------------------------------------------------------------------
+C
 C Sample holder
 1 1 -1.0     (1 -2 3 -4):(2 -4 5 -6) 7 -8                    $ SAMPLE HOLDER 
               #(-2 -10 19) #(-2 -11 19) #(-2 -12 19)
@@ -12,7 +19,7 @@ C Sample holder surfaces
 3   py  0                  $ LONG LEG - END FACE
 4   py  8.920              $ SHORT LEG - OUTER FACE
 5   py  8.605              $ SHORT LEG - INNER FACE
-6   pz  XXXX               $ SHORT LEG - END FACE
+6   pz  3.000              $ SHORT LEG - END FACE
 7   px  0                  $ BACK FACE
 8   px  3.990              $ FRONT FACE
 10  c/z 1.995 4.170 0.550  $ HOLDER 1 
@@ -28,14 +35,12 @@ C Sample holder surfaces
 20  c/y 1.995 1.815 0.550  $ HOLDER 5 
 21  py  8.835              $ SHORT LEG - HOLDER BOTTOM
 
-C ASSUMPTIONS:
-C      - need value for length of short leg (30mm)
-C      - cylindrical holders assumed centered in x-dimension
+C NOTES:
+C      - assumed value for length of short leg was 30mm
+C      - assumed cylindrical holders were centered in x-dimension
 C      - assumed symmetry on holders
 C          - 2RX is holder 2 reflected over x-midplane
 C          - 2RY is holder 2 reflected over y-midplane
 C          - 2RXY is holder 2 reflected over x- and y-midplanes
-C NOTES:
-C      - 41.7mm + 47.5mm = 89.2mm; inconsistency on diagram (to outer edge)
-C      - surprising that end of 4RY holder is thickness of 0.2mm (true?)
-C      - 6020 Al
+C      - Sample-holder composed of 6020 Al
+C      - 89.2mm used as distance to outer edge (inconsitency on diagram)
