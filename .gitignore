@@ -56,7 +56,6 @@ coverage.xml
 # Latex extras
 *.aux
 *.log
-*.out
 *.synctex.gz
 *.bib
 
