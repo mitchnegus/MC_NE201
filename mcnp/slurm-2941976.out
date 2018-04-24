@@ -1,0 +1,73 @@
+ mcnp     ver=6.mpi, ld=01/12/18  04/24/18 10:11:33                   
+          Code Name & Version = MCNP6, 1.0
+          Copyright LANS/LANL/DOE - see output file
+  
+     _/      _/        _/_/_/       _/      _/       _/_/_/         _/_/_/
+    _/_/  _/_/      _/             _/_/    _/       _/    _/     _/       
+   _/  _/  _/      _/             _/  _/  _/       _/_/_/       _/_/_/    
+  _/      _/      _/             _/    _/_/       _/           _/    _/   
+ _/      _/        _/_/_/       _/      _/       _/             _/_/      
+  
+  warning.  Physics models disabled.
+ 80  c/z 0.  0. 0.45                                                  
+  warning.  this surface has been replaced by a surface of type cz
+ m100 49000           1.0                                             
+  warning.  material      100 is not used in the problem.
+ m101 49115           1.0                                             
+  warning.  material      101 is not used in the problem.
+ m115 49115           1.0                                             
+  warning.  material      115 is not used in the problem.
+ m200 30000.70c       1.0                                             
+  warning.  material      200 is not used in the problem.
+ m500 1001.70c 0.486                                                  
+  warning.  material      500 is not used in the problem.
+ m700 7014.70c  1.0                                                   
+  warning.  material      700 is not used in the problem.
+ m850  1001.70c  -0.0221   $ Concrete                                 
+  warning.  material      850 is not used in the problem.
+ mt500 poly.10t $ natural poly/cr39                                   
+  warning.  material      500 is not used in the problem.
+ wgt=1.0 ext=0                                                        
+  warning.  ext is constant. in most problems it is a variable.
+ 
+  comment.  total nubar used if fissionable isotopes are present.
+  warning.     1 energy bins of tally        4 are below energy cutoff.
+  warning.    1 of the materials appear at more than one density.
+  warning.  surface       57 is not used for anything.
+  warning.  surface       60 is not used for anything.
+  warning.  surface       70 is not used for anything.
+  warning.  surface       75 is not used for anything.
+  warning.  surface       80 is not used for anything.
+  warning.  surface       81 is not used for anything.
+  warning.  surface       82 is not used for anything.
+ additional error messages on file HFNG.out
+ comment. using random number generator  1, initial seed = 19073486328125      
+ imcn   is done
+
+
+ ctm =        0.00   nrn =                 0
+ dump    1 on file runtpe   nps =           0   coll =                0
+ xact   is done
+
+ cp0 =   0.13
+ master starting      19 MPI slave tasks with       1 threads each  04/24/18 10:11:41 
+ master broadcasting static commons...
+ master broadcasting dynamic commons...
+ master broadcasting cross section data...
+ master completed initialization broadcasts.
+ master set rendezvous nps =     1000000,  work chunks =    19    04/24/18 10:11:41 
+ master set rendezvous nps =     2000000,  work chunks =    19    04/24/18 10:11:43 
+ master set rendezvous nps =     3000000,  work chunks =    19    04/24/18 10:11:45 
+ master set rendezvous nps =     4000000,  work chunks =    19    04/24/18 10:11:47 
+ master set rendezvous nps =     5000000,  work chunks =    19    04/24/18 10:11:50 
+ master set rendezvous nps =     6000000,  work chunks =    19    04/24/18 10:11:52 
+ master set rendezvous nps =     7000000,  work chunks =    19    04/24/18 10:11:54 
+ master set rendezvous nps =     8000000,  work chunks =    19    04/24/18 10:11:56 
+ master set rendezvous nps =     9000000,  work chunks =    19    04/24/18 10:11:58 
+ master set rendezvous nps =    10000000,  work chunks =    19    04/24/18 10:12:00 
+      run terminated when    10000000  particle histories were done.
+
+ ctm =        6.53   nrn =         147908893
+ dump    2 on file runtpe   nps =    10000000   coll =          5073064
+ mcrun  is done
+
