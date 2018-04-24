@@ -1,5 +1,5 @@
 import sys
-import hfngutils as hut
+import utils.io as io
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     mcnpinputs = sys.argv[1:]
     fig,ax = plt.subplots()
     for mcnpinput in mcnpinputs:
-        mcnpinputlist = hut.read_mcnp_input(mcnpinput);
+        mcnpinputlist = io.read_mcnp_input(mcnpinput);
         cards = {}
         for cardname in cards_to_get:
             card_values = get_mcnp_card_values(cardname,mcnpinputlist)
