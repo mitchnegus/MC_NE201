@@ -1,5 +1,5 @@
-Tue Apr 24 15:20:21 PDT 2018
- mcnp     ver=6.mpi, ld=01/12/18  04/24/18 15:20:28                   
+Tue Apr 24 15:54:16 PDT 2018
+ mcnp     ver=6.mpi, ld=01/12/18  04/24/18 15:54:39                   
           Code Name & Version = MCNP6, 1.0
           Copyright LANS/LANL/DOE - see output file
   
@@ -32,7 +32,6 @@ Tue Apr 24 15:20:21 PDT 2018
   warning.  ext is constant. in most problems it is a variable.
  
   comment.  total nubar used if fissionable isotopes are present.
-  warning.     1 energy bins of tally        4 are below energy cutoff.
   warning.    1 of the materials appear at more than one density.
   warning.  surface       57 is not used for anything.
   warning.  surface       60 is not used for anything.
@@ -41,6 +40,7 @@ Tue Apr 24 15:20:21 PDT 2018
   warning.  surface       80 is not used for anything.
   warning.  surface       81 is not used for anything.
   warning.  surface       82 is not used for anything.
+  warning.  surface       83 is not used for anything.
  additional error messages on file HFNG.out
  comment. using random number generator  1, initial seed = 19073486328125      
  imcn   is done
@@ -50,26 +50,26 @@ Tue Apr 24 15:20:21 PDT 2018
  dump    1 on file runtpe   nps =           0   coll =                0
  xact   is done
 
- cp0 =   0.19
- master starting      79 MPI slave tasks with       1 threads each  04/24/18 15:20:37 
+ cp0 =   0.30
+ master starting     399 MPI slave tasks with       1 threads each  04/24/18 15:54:48 
  master broadcasting static commons...
  master broadcasting dynamic commons...
  master broadcasting cross section data...
  master completed initialization broadcasts.
- master set rendezvous nps =   100000000,  work chunks =    79    04/24/18 15:20:37 
- master set rendezvous nps =   200000000,  work chunks =    79    04/24/18 15:21:28 
- master set rendezvous nps =   300000000,  work chunks =    79    04/24/18 15:22:19 
- master set rendezvous nps =   400000000,  work chunks =    79    04/24/18 15:23:10 
- master set rendezvous nps =   500000000,  work chunks =    79    04/24/18 15:24:02 
- master set rendezvous nps =   600000000,  work chunks =    79    04/24/18 15:24:53 
- master set rendezvous nps =   700000000,  work chunks =    79    04/24/18 15:25:44 
- master set rendezvous nps =   800000000,  work chunks =    79    04/24/18 15:26:35 
- master set rendezvous nps =   900000000,  work chunks =    79    04/24/18 15:27:26 
- master set rendezvous nps =  1000000000,  work chunks =    79    04/24/18 15:28:17 
-      run terminated when  1000000000  particle histories were done.
+ master set rendezvous nps =  1000000000,  work chunks =   399    04/24/18 15:54:48 
+ master set rendezvous nps =  2000000000,  work chunks =   399    04/24/18 15:56:34 
+ master set rendezvous nps =  3000000000,  work chunks =   399    04/24/18 15:58:16 
+ master set rendezvous nps =  4000000000,  work chunks =   399    04/24/18 15:59:59 
+ master set rendezvous nps =  5000000000,  work chunks =   399    04/24/18 16:01:42 
+ master set rendezvous nps =  6000000000,  work chunks =   399    04/24/18 16:03:24 
+ master set rendezvous nps =  7000000000,  work chunks =   399    04/24/18 16:05:07 
+ master set rendezvous nps =  8000000000,  work chunks =   399    04/24/18 16:06:49 
+ master set rendezvous nps =  9000000000,  work chunks =   399    04/24/18 16:08:32 
+ master set rendezvous nps = 10000000000,  work chunks =   399    04/24/18 16:10:15 
+      run terminated when 10000000000  particle histories were done.
 
- ctm =      654.15   nrn =       14790468066
- dump    2 on file runtpe   nps =  1000000000   coll =        507353512
+ ctm =     6543.86   nrn =      147900610813
+ dump    2 on file runtpe   nps = 10000000000   coll =       5073205247
  mcrun  is done
 
-Tue Apr 24 15:29:09 PDT 2018
+Tue Apr 24 16:11:58 PDT 2018
