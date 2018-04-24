@@ -11,7 +11,7 @@ def get_mcnp_card_values(cardname,mcnpinputlist):
         if mcnpinputlist[linenum]:
             if mcnpinputlist[linenum][0] == cardname:
                 card_start_linenum = linenum
-    # Collect all lines in the card
+    # Collect all lines in the card (cards separated by a blank comment)
     input_linenum = card_start_linenum 
     card = []
     while mcnpinputlist[input_linenum][0].lower() != 'c':
