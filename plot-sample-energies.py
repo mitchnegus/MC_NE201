@@ -41,5 +41,5 @@ if __name__ == '__main__':
     for tally in tallies:
         ax.plot(tally[1][:,0],tally[1][:,1],label='Cell {}'.format(tally[0]))
     ax.legend()
-    ax.set_xlim(1,2.8)
+    ax.set_xlim(2,2.8)
     plt.show()
