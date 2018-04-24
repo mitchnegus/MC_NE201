@@ -1,13 +1,8 @@
 import sys
+import hfngutils as hut
 import numpy as np
 from matplotlib import pyplot as plt
 
-
-def read_mcnp_input(mcnpinput):
-    '''Read MCNP input and return a list of lines'''
-    with open(mcnpinput,'r') as infile:
-        linelist = [line.rstrip('\n& ').split() for line in infile.readlines()]
-    return linelist
 
 def get_mcnp_card_values(cardname,mcnpinputlist):
     '''Get contents of a card from an MCNP input'''
@@ -42,7 +37,7 @@ if __name__ == '__main__':
     mcnpinputs = sys.argv[1:]
     fig,ax = plt.subplots()
     for mcnpinput in mcnpinputs:
-        mcnpinputlist = read_mcnp_input(mcnpinput);
+        mcnpinputlist = hut.read_mcnp_input(mcnpinput);
         cards = {}
         for cardname in cards_to_get:
             card_values = get_mcnp_card_values(cardname,mcnpinputlist)

@@ -1,4 +1,4 @@
-"""Utilities for python scripts'''
+'''Utilities for python scripts'''
 
 def read_mcnp_input(filename):
     '''Read MCNP input and return a list of lines, separated by item'''
