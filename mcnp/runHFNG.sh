@@ -16,5 +16,7 @@
 # Wall clock limit:
 #SBATCH --time=00:30:00
 ## Command(s) to run (example):
+date
 module load intel openmpi
 mpirun -np 20 mcnp6.mpi  i=HFNG.inp o=HFNG.out
+date
