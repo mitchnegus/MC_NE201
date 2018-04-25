@@ -214,7 +214,7 @@ MT500 poly.10t $ natural poly/cr39
 MT600 al27.12t $ Aluminum      
 c   
 mode n   
-SDEF POS= -0.05 -0.37 -0.696 &  
+SDEF POS= -0 -0 -0.696 &  
 AXS=0 0 1 VEC=0 0 1 RAD=D3 PAR=N DIR=D4 ERG=fdir D5 &  
 WGT=1.0 EXT=0  
 SI3   0 0.25  
