@@ -14,7 +14,7 @@
 # Processors per task:
 #SBATCH --cpus-per-task=1
 # Wall clock limit:
-#SBATCH --time=00:30:00
+#SBATCH --time=10:00:00
 ## Command(s) to run (example):
 date
 module load intel openmpi
