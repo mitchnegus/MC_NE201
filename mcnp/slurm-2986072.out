@@ -1,0 +1,77 @@
+Mon May  7 14:41:10 PDT 2018
+ mcnp     ver=6.mpi, ld=01/12/18  05/07/18 14:41:47                   
+ HFNG.out already exists.  HFNH.out is created instead.
+          Code Name & Version = MCNP6, 1.0
+          Copyright LANS/LANL/DOE - see output file
+  
+     _/      _/        _/_/_/       _/      _/       _/_/_/         _/_/_/
+    _/_/  _/_/      _/             _/_/    _/       _/    _/     _/       
+   _/  _/  _/      _/             _/  _/  _/       _/_/_/       _/_/_/    
+  _/      _/      _/             _/    _/_/       _/           _/    _/   
+ _/      _/        _/_/_/       _/      _/       _/             _/_/      
+  
+  warning.  Physics models disabled.
+ 80  c/z 0.0  0.0 0.45                                                
+  warning.  this surface has been replaced by a surface of type cz
+ 211 c/z  0.000  0.000 0.55                                           
+  warning.  this surface has been replaced by a surface of type cz
+ m100 49000           1.0                                             
+  warning.  material      100 is not used in the problem.
+ m101 49115           1.0                                             
+  warning.  material      101 is not used in the problem.
+ m115 49115           1.0                                             
+  warning.  material      115 is not used in the problem.
+ m200 30000.70c       1.0                                             
+  warning.  material      200 is not used in the problem.
+ m500 1001.70c 0.486                                                  
+  warning.  material      500 is not used in the problem.
+ m700 7014.70c  1.0                                                   
+  warning.  material      700 is not used in the problem.
+ m850  1001.70c  -0.0221   $ Concrete                                 
+  warning.  material      850 is not used in the problem.
+ mt500 poly.10t $ natural poly/cr39                                   
+  warning.  material      500 is not used in the problem.
+ wgt=1.0 ext=0                                                        
+  warning.  ext is constant. in most problems it is a variable.
+ 
+  comment.  total nubar used if fissionable isotopes are present.
+  warning.    1 of the materials appear at more than one density.
+  warning.  surface       31 is not used for anything.
+  warning.  surface       57 is not used for anything.
+  warning.  surface       60 is not used for anything.
+  warning.  surface       70 is not used for anything.
+  warning.  surface       75 is not used for anything.
+  warning.  surface       80 is not used for anything.
+  warning.  surface       81 is not used for anything.
+ additional error messages on file HFNH.out
+ comment. using random number generator  1, initial seed = 19073486328125      
+ imcn   is done
+
+
+ ctm =        0.00   nrn =                 0
+ dump    1 on file runtpe   nps =           0   coll =                0
+ xact   is done
+
+ cp0 =   0.13
+ master starting     399 MPI slave tasks with       1 threads each  05/07/18 14:41:57 
+ master broadcasting static commons...
+ master broadcasting dynamic commons...
+ master broadcasting cross section data...
+ master completed initialization broadcasts.
+ master set rendezvous nps =  1000000000,  work chunks =   399    05/07/18 14:41:57 
+ master set rendezvous nps =  2000000000,  work chunks =   399    05/07/18 14:43:44 
+ master set rendezvous nps =  3000000000,  work chunks =   399    05/07/18 14:45:28 
+ master set rendezvous nps =  4000000000,  work chunks =   399    05/07/18 14:47:14 
+ master set rendezvous nps =  5000000000,  work chunks =   399    05/07/18 14:48:59 
+ master set rendezvous nps =  6000000000,  work chunks =   399    05/07/18 14:50:45 
+ master set rendezvous nps =  7000000000,  work chunks =   399    05/07/18 14:52:31 
+ master set rendezvous nps =  8000000000,  work chunks =   399    05/07/18 14:54:16 
+ master set rendezvous nps =  9000000000,  work chunks =   399    05/07/18 14:56:01 
+ master set rendezvous nps = 10000000000,  work chunks =   399    05/07/18 14:57:46 
+      run terminated when 10000000000  particle histories were done.
+
+ ctm =     6412.78   nrn =      159901819504
+ dump    2 on file runtpe   nps = 10000000000   coll =       5621999364
+ mcrun  is done
+
+Mon May  7 14:59:33 PDT 2018
