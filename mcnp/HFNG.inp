@@ -212,14 +212,15 @@ C Scattering Kernels
 MT400 lwtr.11t $ Hydrogen in Light Water                                                      
 MT500 poly.10t $ natural poly/cr39 
 MT600 al27.12t $ Aluminum      
-c   
+C   
 mode n   
 SDEF POS= -0 -0 -0.696 &  
 AXS=0 0 1 VEC=0 0 1 RAD=D3 PAR=N DIR=D4 ERG=fdir D5 &  
 WGT=1.0 EXT=0  
-SI3   0 0.25  
-SP3 -21 1.0  
-c distribution for dir  
+C Distribution for RAD: uniform, circular source
+SI3   0 0.25             $ inner/outer radii of circle
+SP3 -21 1.0              $ built-in function (power law for uniform dist.)
+C Distribution for DIR  
 C  
 SI4 -1    -0.99985    -0.99939    -0.99863    -0.99756 &  
 -0.99619    -0.99452    -0.99255    -0.99027    -0.98769 &  
@@ -296,7 +297,8 @@ SP4 0  9.5683e-05  0.00028694   0.0004779   0.0006684 &
 0.0025324   0.0023016   0.0020677   0.0018311   0.0015919 &  
 0.0013506   0.0011075  0.00086283  0.00061707  0.00037053 &  
 0.00012354  
-C  
+c  
+c Distribution for ERG
 DS5 2.1796      2.1796      2.1798        2.18      2.1803 &  
 2.1806      2.1811      2.1816      2.1823       2.183 &  
 2.1837      2.1846      2.1856      2.1866      2.1877 &  
@@ -334,8 +336,8 @@ DS5 2.1796      2.1796      2.1798        2.18      2.1803 &
 2.7763      2.7772      2.7781      2.7788      2.7795 &  
 2.78      2.7805      2.7808      2.7811      2.7812 &  
 2.7813  
-C
-C MPLOT TALLY=14
+c
+c MPLOT TALLY=14
 FC14 Energy Distribution in region 671
 F14:n 671 
 FC24 Energy Distribution in region 672
